@@ -5,6 +5,7 @@ import { UserContext } from "./contexts/UserContext";
 import { Route, Routes, Link } from "react-router-dom";
 import Hello from "./Hello";
 import Contact from "./Contact";
+import Post from "./Post";
 
 function App() {
   return (
@@ -26,7 +27,9 @@ function App() {
             <Link to="/contact">
               <button>CONTACT</button>
             </Link>
-            <button>POSTS</button>
+            <Link to="/posts">
+              <button>POSTS</button>
+            </Link>
           </div>
         </div>
       </UserContext.Provider>
@@ -44,6 +47,7 @@ function App() {
         />
         <Route path="/hello" element={<Hello />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/posts" element={<Post />} />
       </Routes>
     </>
   );
