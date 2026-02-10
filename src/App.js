@@ -1,24 +1,51 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import Header from "./components/Header/Header";
+import Form from "./components/Form/Form";
+import { UserContext } from "./contexts/UserContext";
+import { Route, Routes, Link } from "react-router-dom";
+import Hello from "./Hello";
+import Contact from "./Contact";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <UserContext.Provider
+        value={{
+          userName: "Ai003",
+          email: "ali22ibrahim12@gmail.com",
+          name: "ali",
+        }}
+      >
+        <div className="App" style={{ marginTop: "5rem" }}>
+          <div
+            style={{ display: "flex", justifyContent: "center", gap: "1rem" }}
+          >
+            <Link to="/">
+              <button>HOME</button>
+            </Link>
+            <Link to="/contact">
+              <button>CONTACT</button>
+            </Link>
+            <button>POSTS</button>
+          </div>
+        </div>
+      </UserContext.Provider>
+
+      {/*ROUTES*/}
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <>
+              <Header />
+              <Form />
+            </>
+          }
+        />
+        <Route path="/hello" element={<Hello />} />
+        <Route path="/contact" element={<Contact />} />
+      </Routes>
+    </>
   );
 }
 
