@@ -3,6 +3,7 @@ import Modal from "../Modal";
 import { useState } from "react";
 import MyComponent from "../MyComponent";
 import { loanInputContext } from "../../contexts/LoanFormInputContext";
+
 import { useContext } from "react";
 import { UserContext } from "../../contexts/UserContext";
 
@@ -29,6 +30,7 @@ export default function Form() {
     formInputs.phoneNumber == "";
 
   btnDisabled ? (btnClasses = "disabled") : (btnClasses = "");
+  console.log(userData);
 
   function handleFormCLick(event) {
     event.preventDefault();
