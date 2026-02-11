@@ -1,6 +1,12 @@
 import "./App.css";
 import Header from "./components/Header/Header";
 import Form from "./components/Form/Form";
+/*
+import '@fontsource/roboto/300.css';
+import '@fontsource/roboto/400.css';
+import '@fontsource/roboto/500.css';
+import '@fontsource/roboto/700.css';
+*/
 
 import { UserContext } from "./contexts/UserContext";
 import { Route, Routes, Link } from "react-router-dom";
@@ -13,6 +19,8 @@ import PostDetails from "./PostDetails";
 import { postsContext } from "./contexts/postsContext";
 
 import { postsData } from "./PostsData";
+
+import NotFound from "./components/NotFound";
 function App() {
   return (
     <>
@@ -54,6 +62,7 @@ function App() {
             <Route path="/contact" element={<Contact />} />
             <Route path="/posts" element={<Post />} />
             <Route path="/postDetails/:postId" element={<PostDetails />} />
+            <Route path="*" element={<NotFound />} />
           </Routes>
         </UserContext.Provider>
       </postsContext.Provider>

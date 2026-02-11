@@ -8,10 +8,14 @@ export default function PostDetails() {
   const post = posts.find((p) => {
     return p.id == postId;
   });
-  return (
-    <>
-      <h1>{post.title}</h1>
-      <p>{post.body}</p>
-    </>
-  );
+  if (post) {
+    return (
+      <>
+        <h1>{post.title}</h1>
+        <p>{post.body}</p>
+      </>
+    );
+  } else {
+    return <h1>The post with id:{postId} is not exist!</h1>;
+  }
 }
